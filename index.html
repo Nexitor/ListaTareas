@@ -55,6 +55,18 @@
 
         }
 
+        function eliminarDatosLS(){
+
+            // Tomamos el nombre para eliminar todos los datos correspondientes
+            var taskName = document.getElementById("taskName").value
+
+            // Eliminamos los registros
+            localStorage.removeItem(taskName + "Name")
+            localStorage.removeItem(taskName + "Desc")
+            localStorage.removeItem(taskName + "State")
+
+        }
+
     </script>
 </head>
 <body style="background-color: rgb(255, 251, 211);">
@@ -79,7 +91,7 @@
             <br>
             <input type="button" value="Consultar" onclick="consultarDatosLS(); return false">
             <input type="button" value="Actualizar" onclick="actualizarDatosLS(); return false">
-            <input type="button" value="Eliminar">
+            <input type="button" value="Eliminar" onclick="eliminarDatosLS(); return false">
 
         </form>
     </section>
