@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+
+    <script>
+
+        function guardarDatosLS() {
+            console.log('hola')
+            const task = document.getElementById("taskName").value ;
+            const taskDesc = document.getElementById("taskDesc").value ;
+            const taskstate = document.getElementById("taskState").value ;
+
+            localStorage.setItem(task + "Name", task);
+            localStorage.setItem(task + "Desc", taskDesc);
+            localStorage.setItem(task + "State", taskstate);
+            
+            // reseteamos el formunario
+            document.getElementById('miFormulario').reset();
+        }
+
+    </script>
+</head>
+<body style="background-color: rgb(255, 251, 211);">
+    <section>
+        <hr>
+        <h1>Lista de tareas</h1>
+        <hr>
+        <form onsubmit="guardarDatosLS(); return false">
+            Nombre de tarea:
+            <br>
+            <input type="text" name="taskName" id="taskName">
+            <br>
+            Descripción de la tarea:
+            <br>
+            <textarea name="taskDesc" id="taskDesc" rows="5" cols="40"></textarea>
+            <br>
+            Estado de la tarea:
+            <br>
+            <input type="text" name="taskState" id="taskState">
+            <br><br>
+            <input type="submit" value="Enviar">
+            <br>
+            <input type="button" value="Consultar">
+            <input type="button" value="Actualizar">
+            <input type="button" value="Eliminar">
+
+        </form>
+    </section>
+</body>
+</html>
