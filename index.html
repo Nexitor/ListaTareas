@@ -9,28 +9,28 @@
 
         function guardarDatosLS() {
             console.log('hola')
-            const task = document.getElementById("taskName").value
+            const taskName = document.getElementById("taskName").value
             const taskDesc = document.getElementById("taskDesc").value
             const taskstate = document.getElementById("taskState").value
 
-            localStorage.setItem(task + "Name", task)
-            localStorage.setItem(task + "Desc", taskDesc)
-            localStorage.setItem(task + "State", taskstate)
+            localStorage.setItem(taskName + "Name", taskName)
+            localStorage.setItem(taskName + "Desc", taskDesc)
+            localStorage.setItem(taskName + "State", taskstate)
             
-            // reseteamos el formunario
+            // Reseteamos el formunario
             document.getElementById('miFormulario').reset()
         }
 
         function consultarDatosLS() {
             
-            // sacamos el valor del textBox para consultar sus datos
+            // Sacamos el valor del textBox para consultar sus datos
             taskName = document.getElementById('taskName').value
 
             const task = localStorage.getItem(taskName + "Name")
             const taskDesc = localStorage.getItem(taskName + "Desc")
             const taskState = localStorage.getItem(taskName + "State")
             
-            // pintamos los datos en el formulario
+            // Pintamos los datos en el formulario
 
             document.getElementById("taskName").value = task
             document.getElementById("taskDesc").value = taskDesc
@@ -38,6 +38,20 @@
 
 
             console.log(task, taskDesc, taskState)
+
+        }
+
+        function actualizarDatosLS(){
+            
+            // Tomamos los datos nuevos que vamos a insertar
+            taskName = document.getElementById('taskName').value
+            taskDesc = document.getElementById('taskDesc').value
+            taskState = document.getElementById('taskState').value 
+            
+            // Remplazamos los datos viejos
+            localStorage.setItem(taskName + "Name", taskName)
+            localStorage.setItem(taskName + "Desc", taskDesc)
+            localStorage.setItem(taskName + "State", taskState)
 
         }
 
@@ -64,7 +78,7 @@
             <input type="submit" value="Enviar">
             <br>
             <input type="button" value="Consultar" onclick="consultarDatosLS(); return false">
-            <input type="button" value="Actualizar">
+            <input type="button" value="Actualizar" onclick="actualizarDatosLS(); return false">
             <input type="button" value="Eliminar">
 
         </form>
