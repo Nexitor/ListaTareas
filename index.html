@@ -9,23 +9,23 @@
 
         function guardarDatosLS() {
             console.log('hola')
-            const task = document.getElementById("taskName").value ;
-            const taskDesc = document.getElementById("taskDesc").value ;
-            const taskstate = document.getElementById("taskState").value ;
+            const task = document.getElementById("taskName").value
+            const taskDesc = document.getElementById("taskDesc").value
+            const taskstate = document.getElementById("taskState").value
 
-            localStorage.setItem(task + "Name", task);
-            localStorage.setItem(task + "Desc", taskDesc);
-            localStorage.setItem(task + "State", taskstate);
+            localStorage.setItem(task + "Name", task)
+            localStorage.setItem(task + "Desc", taskDesc)
+            localStorage.setItem(task + "State", taskstate)
             
             // reseteamos el formunario
-            document.getElementById('miFormulario').reset();
+            document.getElementById('miFormulario').reset()
         }
 
         function consultarDatosLS() {
             
+            // sacamos el valor del textBox para consultar sus datos
             taskName = document.getElementById('taskName').value
 
-            // traemos los valores del LS
             const task = localStorage.getItem(taskName + "Name")
             const taskDesc = localStorage.getItem(taskName + "Desc")
             const taskState = localStorage.getItem(taskName + "State")
