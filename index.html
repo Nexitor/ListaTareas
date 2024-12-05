@@ -21,6 +21,26 @@
             document.getElementById('miFormulario').reset();
         }
 
+        function consultarDatosLS() {
+            
+            taskName = document.getElementById('taskName').value
+
+            // traemos los valores del LS
+            const task = localStorage.getItem(taskName + "Name")
+            const taskDesc = localStorage.getItem(taskName + "Desc")
+            const taskState = localStorage.getItem(taskName + "State")
+            
+            // pintamos los datos en el formulario
+
+            document.getElementById("taskName").value = task
+            document.getElementById("taskDesc").value = taskDesc
+            document.getElementById("taskState").value = taskState
+
+
+            console.log(task, taskDesc, taskState)
+
+        }
+
     </script>
 </head>
 <body style="background-color: rgb(255, 251, 211);">
@@ -28,7 +48,7 @@
         <hr>
         <h1>Lista de tareas</h1>
         <hr>
-        <form onsubmit="guardarDatosLS(); return false">
+        <form onsubmit="guardarDatosLS(); return false" id="miFormulario">
             Nombre de tarea:
             <br>
             <input type="text" name="taskName" id="taskName">
@@ -43,7 +63,7 @@
             <br><br>
             <input type="submit" value="Enviar">
             <br>
-            <input type="button" value="Consultar">
+            <input type="button" value="Consultar" onclick="consultarDatosLS(); return false">
             <input type="button" value="Actualizar">
             <input type="button" value="Eliminar">
 
